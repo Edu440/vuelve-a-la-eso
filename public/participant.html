@@ -1,0 +1,30 @@
+<!DOCTYPE html><html><body>
+<video id="video" autoplay playsinline></video>
+<script type="module">
+const ws = new WebSocket('ws://localhost:3001');
+const pc = new RTCPeerConnection();
+
+pc.onicecandidate = ({candidate}) => {
+  if(candidate) ws.send(JSON.stringify({type:'candidate', candidate}));
+};
+
+ws.onmessage = async ({data}) => {
+  const msg = JSON.parse(data);
+  if (msg.type === 'candidate') {
+    await pc.addIceCandidate(msg.candidate);
+  } else if (msg.type === 'answer') {
+    await pc.setRemoteDescription(msg);
+  }
+};
+
+pc.onnegotiationneeded = async () => {
+  const offer = await pc.createOffer();
+  await pc.setLocalDescription(offer);
+  ws.send(JSON.stringify(offer));
+};
+
+const stream = await navigator.mediaDevices.getUserMedia({video: true, audio: true});
+stream.getTracks().forEach(track => pc.addTrack(track, stream));
+document.getElementById('video').srcObject = stream;
+</script>
+</body></html>

@@ -98,7 +98,6 @@ useEffect(() => {
         const propia = document.getElementById('webcam-propia');
         const participante = document.getElementById('webcam-participante');
         if (propia) propia.srcObject = stream;
-        if (participante) participante.srcObject = stream;
         setParticipanteConectado(true);
       }, 500);
     } catch (err) {

@@ -108,8 +108,6 @@ useEffect(() => {
   iniciarWebcams();
 }, []);
 
-const peerConnection = new RTCPeerConnection();
-
 navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
   if (localVideo.current) {
     localVideo.current.srcObject = stream;
@@ -120,38 +118,61 @@ navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
   });
 });
 
-peerConnection.ontrack = (event) => {
-  remoteVideo.srcObject = event.streams[0];
-};
-
 const pc = useRef(null);
 const ws = useRef(null);
 
 useEffect(() => {
+  pc.current = new RTCPeerConnection();
+
   ws.current = new WebSocket('ws://localhost:3001');
+
   ws.current.onmessage = async ({ data }) => {
     const msg = JSON.parse(data);
+
     if (msg.type === 'offer') {
       await pc.current.setRemoteDescription(msg);
-      const ans = await pc.current.createAnswer();
-      await pc.current.setLocalDescription(ans);
+      const answer = await pc.current.createAnswer();
+      await pc.current.setLocalDescription(answer);
       ws.current.send(JSON.stringify(pc.current.localDescription));
     } else if (msg.type === 'candidate') {
       await pc.current.addIceCandidate(msg.candidate);
     }
   };
 
-  pc.current = new RTCPeerConnection();
-
   pc.current.onicecandidate = ({ candidate }) => {
-    if (candidate) ws.current.send(JSON.stringify({ type: 'candidate', candidate }));
+    if (candidate) {
+      ws.current.send(JSON.stringify({ type: 'candidate', candidate }));
+    }
   };
 
-  pc.current.ontrack = (e) => {
+  pc.current.ontrack = (event) => {
     const participante = document.getElementById('webcam-participante');
-    participante.srcObject = e.streams[0];
+    if (participante) {
+      participante.srcObject = event.streams[0];
+    }
   };
+
+  navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
+    if (localVideo.current) {
+      localVideo.current.srcObject = stream;
+    }
+
+    stream.getTracks().forEach((track) => {
+      pc.current.addTrack(track, stream);
+    });
+
+    setTimeout(() => {
+      const propia = document.getElementById('webcam-propia');
+      const participante = document.getElementById('webcam-participante');
+      if (propia) propia.srcObject = stream;
+      if (participante) participante.srcObject = stream;
+      setParticipanteConectado(true);
+    }, 500);
+  }).catch((err) => {
+    console.error('Error al acceder a la webcam:', err);
+  });
 }, []);
+
 
   useEffect(() => {
   if (llamadaActiva && contador > 0) {

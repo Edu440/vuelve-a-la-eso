@@ -31,19 +31,16 @@ function Participante() {
       };
 
       ws.current.onmessage = async ({ data }) => {
-        const msg = JSON.parse(data);
-        if (msg.type === 'answer') {
-          await pc.current.setRemoteDescription(msg);
-        } else if (msg.type === 'candidate') {
-          await pc.current.addIceCandidate(msg.candidate);
-        }
-      };
+  const msg = JSON.parse(data);
 
-      pc.current.onicecandidate = ({ candidate }) => {
-        if (candidate) {
-          ws.current.send(JSON.stringify({ type: 'candidate', candidate }));
-        }
-      };
+  if (msg.type === 'answer') {
+    await pc.current.setRemoteDescription(new RTCSessionDescription(msg));
+  }
+
+  if (msg.type === 'candidate') {
+    await pc.current.addIceCandidate(new RTCIceCandidate(msg.candidate));
+  }
+};
     };
 
     start();

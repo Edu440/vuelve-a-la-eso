@@ -284,14 +284,14 @@ body {
   position: absolute;
   top: 20px;
   right: 20px;
-  width: 60px;
-  height: 60px;
+  width: 72px;
+  height: 72px;
   background-color: #2196f3;
   border: 3px solid white;
   border-radius: 50%;
   color: white;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -308,14 +308,14 @@ body {
   position: absolute;
   top: 20px;
   right: 20px;
-  width: 60px;
-  height: 60px;
+  width: 72px;
+  height: 72px;
   background-color: #2196f3;
   border: 3px solid white;
   border-radius: 50%;
   color: white;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -360,12 +360,12 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.15); /* más transparente */
+  background: rgba(0, 0, 0, 0.15);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  pointer-events: none; /* para que no interfiera con clics de fondo */
+  pointer-events: none;
 }
 
 .llamada-contenedor {

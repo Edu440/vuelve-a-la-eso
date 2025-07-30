@@ -15,13 +15,18 @@ function Participante() {
 
       // Crear peer connection
       pc.current = new RTCPeerConnection();
+      pc.current.onicecandidate = event => {
+  if (event.candidate && ws.current.readyState === WebSocket.OPEN) {
+    ws.current.send(JSON.stringify({ type: 'candidate', candidate: event.candidate }));
+  }
+};
 
       stream.getTracks().forEach(track => {
         pc.current.addTrack(track, stream);
       });
 
       // Conectarse al servidor WebSocket
-      ws.current = new WebSocket('ws://localhost:3001');
+      ws.current = new WebSocket('wss://signaling-eso.onrender.com');
 
       ws.current.onopen = async () => {
         // Crear una offer

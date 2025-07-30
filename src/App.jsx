@@ -3,6 +3,7 @@ import confetti from 'canvas-confetti';
 import './App.css';
 import { motion } from 'framer-motion';
 import { EyeOff } from 'lucide-react';
+import Participante from './Participante.jsx';
 
 const preguntas = [
   { pregunta: "¿Cómo se llama el proceso por el cual las plantas se alimentan?", opciones: ["Fotosíntesis", "Precipitación", "Digestión", "Absorción"], correcta: 0 },
@@ -23,6 +24,12 @@ const preguntas = [
 ];
 
 function App() {
+  const path = window.location.pathname;
+
+  if (path === "/participante") {
+    return <Participante />;
+  }
+
   const [indice, setIndice] = useState(0);
   const [seleccionada, setSeleccionada] = useState(null);
   const [confirmada, setConfirmada] = useState(false);

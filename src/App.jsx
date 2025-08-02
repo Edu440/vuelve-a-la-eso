@@ -171,7 +171,6 @@ useEffect(() => {
       const propia = document.getElementById('webcam-propia');
       const participante = document.getElementById('webcam-participante');
       if (propia) propia.srcObject = stream;
-      if (participante) participante.srcObject = stream;
       setParticipanteConectado(true);
     }, 500);
   }).catch((err) => {
@@ -275,7 +274,7 @@ const preguntasMedias = [
 ];
 
 const preguntasDificiles = [
-  { pregunta: "¿Qué significa FIFA?", opciones: ["Federación Internacional de Fútbol Asociación", "Fútbol Internacional de Federación Asociación", "Fútbol intermedio de Formación Asociada", "Fútbol I Formación Asociada"], correcta: 0 },
+  { pregunta: "¿Cuántas estrellas aparecen en la bandera de la República Popular China?", opciones: ["0", "5", "6", "8"], correcta: 1 },
 ];
 
 const obtenerPreguntaAleatoria = (nivel) => {

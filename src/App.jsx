@@ -96,6 +96,9 @@ const preguntaPersonalizadaReroll = {
   correcta: 2,
 };
 
+const pc = useRef(null);
+const ws = useRef(null);
+
 useEffect(() => {
   const iniciarWebcams = async () => {
     try {
@@ -120,12 +123,9 @@ navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
   }
 
   stream.getTracks().forEach(track => {
-    peerConnection.addTrack(track, stream);
+    pc.current.addTrack(track, stream);
   });
 });
-
-const pc = useRef(null);
-const ws = useRef(null);
 
 useEffect(() => {
   pc.current = new RTCPeerConnection();

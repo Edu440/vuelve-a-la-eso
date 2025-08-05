@@ -11,5 +11,9 @@ export default defineConfig({
         participante: resolve(__dirname, 'participante.html')
       }
     }
+  },
+  server: {
+    host: true,      
+    port: 5173        
   }
 });

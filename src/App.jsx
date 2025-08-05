@@ -100,84 +100,60 @@ const pc = useRef(null);
 const ws = useRef(null);
 
 useEffect(() => {
-  const iniciarWebcams = async () => {
+  const iniciarConexion = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ video: true });
 
+      if (localVideo.current) {
+        localVideo.current.srcObject = stream;
+      }
+
+      pc.current = new RTCPeerConnection();
+
+      stream.getTracks().forEach((track) => {
+        pc.current.addTrack(track, stream);
+      });
+
       setTimeout(() => {
         const propia = document.getElementById('webcam-propia');
-        const participante = document.getElementById('webcam-participante');
         if (propia) propia.srcObject = stream;
         setParticipanteConectado(true);
       }, 500);
+
+      ws.current = new WebSocket('ws://localhost:3001');
+
+      ws.current.onmessage = async ({ data }) => {
+        const msg = JSON.parse(data);
+
+        if (msg.type === 'offer') {
+          await pc.current.setRemoteDescription(msg);
+          const answer = await pc.current.createAnswer();
+          await pc.current.setLocalDescription(answer);
+          ws.current.send(JSON.stringify(pc.current.localDescription));
+        } else if (msg.type === 'candidate') {
+          await pc.current.addIceCandidate(msg.candidate);
+        }
+      };
+
+      pc.current.onicecandidate = ({ candidate }) => {
+        if (candidate) {
+          ws.current.send(JSON.stringify({ type: 'candidate', candidate }));
+        }
+      };
+
+      pc.current.ontrack = (event) => {
+        const participante = document.getElementById('webcam-participante');
+        if (participante) {
+          participante.srcObject = event.streams[0];
+        }
+      };
     } catch (err) {
       console.error('Error al acceder a la webcam:', err);
     }
   };
-  iniciarWebcams();
+
+  iniciarConexion();
 }, []);
-
-navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
-  if (localVideo.current) {
-    localVideo.current.srcObject = stream;
-  }
-
-  stream.getTracks().forEach(track => {
-    pc.current.addTrack(track, stream);
-  });
-});
-
-useEffect(() => {
-  pc.current = new RTCPeerConnection();
-
-  ws.current = new WebSocket('ws://localhost:3001');
-
-  ws.current.onmessage = async ({ data }) => {
-    const msg = JSON.parse(data);
-
-    if (msg.type === 'offer') {
-      await pc.current.setRemoteDescription(msg);
-      const answer = await pc.current.createAnswer();
-      await pc.current.setLocalDescription(answer);
-      ws.current.send(JSON.stringify(pc.current.localDescription));
-    } else if (msg.type === 'candidate') {
-      await pc.current.addIceCandidate(msg.candidate);
-    }
-  };
-
-  pc.current.onicecandidate = ({ candidate }) => {
-    if (candidate) {
-      ws.current.send(JSON.stringify({ type: 'candidate', candidate }));
-    }
-  };
-
-  pc.current.ontrack = (event) => {
-    const participante = document.getElementById('webcam-participante');
-    if (participante) {
-      participante.srcObject = event.streams[0];
-    }
-  };
-
-  navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
-    if (localVideo.current) {
-      localVideo.current.srcObject = stream;
-    }
-
-    stream.getTracks().forEach((track) => {
-      pc.current.addTrack(track, stream);
-    });
-
-    setTimeout(() => {
-      const propia = document.getElementById('webcam-propia');
-      const participante = document.getElementById('webcam-participante');
-      if (propia) propia.srcObject = stream;
-      setParticipanteConectado(true);
-    }, 500);
-  }).catch((err) => {
-    console.error('Error al acceder a la webcam:', err);
-  });
-}, []);
-
 
   useEffect(() => {
   if (llamadaActiva && contador > 0) {
@@ -185,12 +161,6 @@ useEffect(() => {
     return () => clearTimeout(timer);
   }
 }, [llamadaActiva, contador]);
-
-useEffect(() => {
-  if (musicRef.current) musicRef.current.volume = musicaMuteada ? 0 : 0.4;
-  if (sonidoAcierto.current) sonidoAcierto.current.volume = 1;
-  if (sonidoFallo.current) sonidoFallo.current.volume = 1;
-}, [musicaMuteada]);
 
 useEffect(() => {
   setPreguntaActual(preguntas[indice]);
@@ -216,14 +186,6 @@ if (indice === 0) {
     setConfirmada(true);
     setRespondidas((prev) => [...prev, indice]);
 
-if (seleccionada === preguntaActual.correcta) {
-  sonidoAcierto.current?.play();
-  musicRef.current?.pause();
-} else {
-  sonidoFallo.current?.play();
-  musicRef.current?.pause();
-}
-
     if (seleccionada === preguntaActual.correcta) {
       confetti({ particleCount: 100, spread: 90, origin: { y: 0.6 } });
 
@@ -233,21 +195,6 @@ if (seleccionada === preguntaActual.correcta) {
     }
   }
 };
-
-const musicRef = useRef(null);
-const sonidoAcierto = useRef(null);
-const sonidoFallo = useRef(null);
-
-useEffect(() => {
-  if (!usuarioInteractivo || !musicRef.current) return;
-
-  musicRef.current.pause();
-  musicRef.current.src = `/musica/musica${(indice % 5) + 1}.mp3`;
-  musicRef.current.currentTime = 0;
-  musicRef.current
-    .play()
-    .catch((err) => console.warn("Error al reproducir música:", err));
-}, [indice, usuarioInteractivo]);
 
   const manejarSiguiente = () => {
     setIndice((prev) => Math.min(prev + 1, preguntas.length - 1));
@@ -451,12 +398,6 @@ const aplicar5050 = () => {
         ) : (
           <div className="participante-placeholder">Esperando al participante...</div>
         )}
-        <audio ref={musicRef} loop>
-  <source src="/musica/musica1.mp3" type="audio/mpeg" />
-  Tu navegador no soporta audio HTML5.
-</audio>
-<audio ref={sonidoAcierto} src="/acierto.mp3" />
-<audio ref={sonidoFallo} src="/fallo.mp3" />
 
 <button
   onClick={() => setMusicaMuteada(prev => !prev)}
@@ -595,7 +536,6 @@ const aplicar5050 = () => {
     }}
   >
     <div style={{ position: 'relative', width: '450px', height: '450px' }}>
-      {/* Flecha arriba */}
       <div
         style={{
           position: 'absolute',
@@ -609,7 +549,6 @@ const aplicar5050 = () => {
         ▲
       </div>
 
-      {/* Ruleta SVG */}
       <svg
         className={`ruleta-svg ${girandoRuleta ? 'girando' : ''}`}
         viewBox="0 0 200 200"
@@ -673,7 +612,6 @@ const aplicar5050 = () => {
         </g>
       </svg>
 
-      {/* Botón Girar / Cerrar */}
       {!ruletaGirada ? (
         <button
           onClick={girarRuleta}

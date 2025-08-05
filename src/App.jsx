@@ -120,7 +120,7 @@ useEffect(() => {
         setParticipanteConectado(true);
       }, 500);
 
-      ws.current = new WebSocket('ws://localhost:3001');
+      ws.current = new WebSocket('ws://192.168.1.42:3001');
 
       ws.current.onmessage = async ({ data }) => {
         const msg = JSON.parse(data);

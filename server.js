@@ -1,6 +1,7 @@
 import { createServer } from 'http';
 import WebSocket, { WebSocketServer } from 'ws';
 
+// Crear servidor HTTP (necesario para que Render lo detecte como activo)
 const server = createServer();
 
 const wss = new WebSocketServer({ server });

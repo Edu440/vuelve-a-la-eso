@@ -120,7 +120,7 @@ useEffect(() => {
         setParticipanteConectado(true);
       }, 500);
 
-      ws.current = new WebSocket('wss://nombre-del-servicio.onrender.com');
+      ws.current = new WebSocket('wss://vuelve-a-la-eso.onrender.com');
 
       ws.current.onmessage = async ({ data }) => {
         const msg = JSON.parse(data);

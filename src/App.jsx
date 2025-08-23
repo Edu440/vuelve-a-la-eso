@@ -70,6 +70,13 @@ const [eliminandoRespuestas, setEliminandoRespuestas] = useState([]);
   const [preguntaActual, setPreguntaActual] = useState(preguntas[indice]);
   const letras = ['A', 'B', 'C', 'D'];
 
+const [comodinesUsados, setComodinesUsados] = useState({
+  fifty: false,
+  llamada: false,
+  reroll: false,
+  ruleta: false,
+});
+
   useEffect(() => {
     setVisibles([false, false, false, false]);
     setConfirmada(false);

@@ -350,6 +350,21 @@ const aplicar5050 = () => {
   }, 2000);
 };
 
+const [revivirDesdeBoton, setRevivirDesdeBoton] = useState(false);
+
+const handleAbrirRevivir = () => {
+  setRevivirDesdeBoton(true);
+};
+
+const handleRevivirDesdeBoton = (comodin) => {
+  setComodinesUsados(prev => ({
+    ...prev,
+    [comodin]: false
+  }));
+  setRevivirDesdeBoton(false);
+};
+
+
   const getColorClase = (i) => {
     if (respondidas.includes(i)) return 'gray';
     if (i < 5) return 'green';
@@ -398,27 +413,42 @@ const aplicar5050 = () => {
         ) : (
           <div className="participante-placeholder">Esperando al participante...</div>
         )}
-
-<button
-  onClick={() => setMusicaMuteada(prev => !prev)}
-  style={{
-    position: 'fixed',
-    bottom: '20px',
-    left: '20px',
-    width: '50px',
-    height: '50px',
-    borderRadius: '50%',
-    backgroundColor: 'black',
-    color: 'white',
-    fontSize: '24px',
-    border: '2px solid white',
-    cursor: 'pointer',
-    zIndex: 9999
-  }}
-  title={musicaMuteada ? 'Activar música' : 'Silenciar música'}
->
-  {musicaMuteada ? '🔇' : '🔊'}
-</button>
+      <div style={{ position: "fixed", bottom: "20px", left: "20px", zIndex: 1000 }}>
+  
+  <button 
+    onClick={handleAbrirRevivir} 
+    style={{
+      background: "white",
+      border: "2px solid black",
+      borderRadius: "50%",
+      width: "40px",
+      height: "40px",
+      fontSize: "20px",
+      cursor: "pointer"
+    }}
+  >
+    🤝
+  </button>
+</div>
+{revivirDesdeBoton && (
+  <div className="overlay">
+    <div className="revivir-modal">
+      <h2>Revivir un comodín</h2>
+      <div className="comodines-container">
+        {Object.keys(comodinesUsados).filter(c => comodinesUsados[c]).map((comodin) => (
+          <button 
+            key={comodin} 
+            onClick={() => handleRevivirDesdeBoton(comodin)} 
+            className="comodin-btn"
+          >
+            {comodin}
+          </button>
+        ))}
+      </div>
+      <button onClick={() => setRevivirDesdeBoton(false)}>Cancelar</button>
+    </div>
+  </div>
+)}
       </div>
 
 <motion.h1

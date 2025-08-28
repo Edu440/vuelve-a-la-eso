@@ -70,13 +70,6 @@ const [eliminandoRespuestas, setEliminandoRespuestas] = useState([]);
   const [preguntaActual, setPreguntaActual] = useState(preguntas[indice]);
   const letras = ['A', 'B', 'C', 'D'];
 
-const [comodinesUsados, setComodinesUsados] = useState({
-  fifty: false,
-  llamada: false,
-  reroll: false,
-  ruleta: false,
-});
-
   useEffect(() => {
     setVisibles([false, false, false, false]);
     setConfirmada(false);
@@ -102,6 +95,11 @@ const preguntaPersonalizadaReroll = {
   opciones: ["Azul", "Amarillo", "Verde", "Blanco"],
   correcta: 2,
 };
+
+const [mostrarComodines, setMostrarComodines] = useState(false);
+
+const handleAbrirComodines = () => setMostrarComodines(true);
+const handleCerrarComodines = () => setMostrarComodines(false);
 
 const pc = useRef(null);
 const ws = useRef(null);
@@ -357,28 +355,108 @@ const aplicar5050 = () => {
   }, 2000);
 };
 
-const [revivirDesdeBoton, setRevivirDesdeBoton] = useState(false);
-
-const handleAbrirRevivir = () => {
-  setRevivirDesdeBoton(true);
-};
-
-const handleRevivirDesdeBoton = (comodin) => {
-  setComodinesUsados(prev => ({
-    ...prev,
-    [comodin]: false
-  }));
-  setRevivirDesdeBoton(false);
-};
-
-
-  const getColorClase = (i) => {
-    if (respondidas.includes(i)) return 'gray';
-    if (i < 5) return 'green';
-    if (i < 10) return 'orange';
+const getColorClase = (i) => {
+  if (respondidas.includes(i)) {
+    return 'gray';
+  } else if (i < 5) {
+    return 'green';
+  } else if (i < 10) {
+    return 'orange';
+  } else {
     return 'red';
-  };
+  }
+};
 
+  const revivirComodin = (comodin) => {
+  switch (comodin) {
+    case '50/50':
+      setComodinUsado(false);
+      break;
+    case 'llamada':
+      setComodinLlamadaUsado(false);
+      break;
+    case 'reroll':
+      setComodinRerollUsado(false);
+      setRerollRevivido(true);
+      break;
+    case 'ruleta':
+      setComodinRuletaUsado(false);
+      break;
+    default:
+      break;
+  }
+  setMostrarComodines(false);
+};
+
+<div style={{ position: "fixed", bottom: "20px", left: "20px", zIndex: 1000 }}>
+  <button 
+    onClick={handleAbrirComodines} 
+    style={{
+      background: "white",
+      border: "2px solid black",
+      borderRadius: "50%",
+      width: "40px",
+      height: "40px",
+      fontSize: "20px",
+      cursor: "pointer"
+    }}
+  >
+    🤝
+  </button>
+</div>
+{mostrarComodines && (
+  <div style={{
+    position: "fixed",
+    inset: 0,
+    backgroundColor: "rgba(0,0,0,0.6)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 2000
+  }}>
+    <div style={{
+      background: "white",
+      padding: "20px",
+      borderRadius: "10px",
+      position: "relative",
+      width: "300px",
+      textAlign: "center"
+    }}>
+      {/* Botón cerrar */}
+      <button 
+        onClick={handleCerrarComodines}
+        style={{
+          position: "absolute",
+          top: "10px",
+          right: "10px",
+          background: "transparent",
+          border: "none",
+          fontSize: "20px",
+          cursor: "pointer"
+        }}
+      >
+        ✕
+      </button>
+
+      <h2>Revivir un comodín</h2>
+      <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "15px" }}>
+        {comodinUsado && (
+          <button onClick={() => revivirComodin('50/50')}>50/50</button>
+        )}
+        {comodinLlamadaUsado && (
+          <button onClick={() => revivirComodin('llamada')}>📞 Llamada</button>
+        )}
+        {comodinRerollUsado && (
+          <button onClick={() => revivirComodin('reroll')}>🎲 Cambiar Pregunta</button>
+        )}
+        {comodinRuletaUsado && (
+          <button onClick={() => revivirComodin('ruleta')}>🎡 Ruleta</button>
+        )}
+      </div>
+    </div>
+  </div>
+)}
+  
   if (!usuarioInteractivo) {
   return (
     <div className="pantalla-inicial" style={{
@@ -412,51 +490,23 @@ const handleRevivirDesdeBoton = (comodin) => {
 }
 
   return (
-    <div className="main-container">
-      <div className="webcams">
-        <video id="webcam-propia" autoPlay playsInline muted />
-        {participanteConectado ? (
-          <video ref={remoteVideo} id="webcam-participante" autoPlay playsInline muted />
-        ) : (
-          <div className="participante-placeholder">Esperando al participante...</div>
-        )}
-      <div style={{ position: "fixed", bottom: "20px", left: "20px", zIndex: 1000 }}>
-  
-  <button 
-    onClick={handleAbrirRevivir} 
-    style={{
-      background: "white",
-      border: "2px solid black",
-      borderRadius: "50%",
-      width: "40px",
-      height: "40px",
-      fontSize: "20px",
-      cursor: "pointer"
-    }}
-  >
-    🤝
-  </button>
-</div>
-{revivirDesdeBoton && (
-  <div className="overlay">
-    <div className="revivir-modal">
-      <h2>Revivir un comodín</h2>
-      <div className="comodines-container">
-        {Object.keys(comodinesUsados).filter(c => comodinesUsados[c]).map((comodin) => (
-          <button 
-            key={comodin} 
-            onClick={() => handleRevivirDesdeBoton(comodin)} 
-            className="comodin-btn"
-          >
-            {comodin}
-          </button>
-        ))}
-      </div>
-      <button onClick={() => setRevivirDesdeBoton(false)}>Cancelar</button>
+  <div className="main-container">
+    <div className="webcams">
+      <video id="webcam-propia" autoPlay playsInline muted />
+      {participanteConectado ? (
+        <video
+          ref={remoteVideo}
+          id="webcam-participante"
+          autoPlay
+          playsInline
+          muted
+        />
+      ) : (
+        <div className="participante-placeholder">
+          Esperando al participante...
+        </div>
+      )}
     </div>
-  </div>
-)}
-      </div>
 
 <motion.h1
   className="titulo-esquina"

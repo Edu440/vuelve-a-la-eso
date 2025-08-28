@@ -85,9 +85,33 @@ const [eliminandoRespuestas, setEliminandoRespuestas] = useState([]);
 
 const [usuarioInteractivo, setUsuarioInteractivo] = useState(false);
 
-const handleMostrarPregunta = () => {
+const handleAbrirComodines = () => {
+  setMostrarComodines(true);
+};
+const handleCerrarComodines = () => {
+  setMostrarComodines(false);
+};
 
-  setMostrarPregunta(true);
+
+const revivirComodin = (comodin) => {
+  switch (comodin) {
+    case '50/50':
+      setComodinUsado(false);
+      break;
+    case 'llamada':
+      setComodinLlamadaUsado(false);
+      break;
+    case 'reroll':
+      setComodinRerollUsado(false);
+      setRerollRevivido(true);
+      break;
+    case 'ruleta':
+      setComodinRuletaUsado(false);
+      break;
+    default:
+      break;
+  }
+  setMostrarComodines(false);
 };
 
 const preguntaPersonalizadaReroll = {
@@ -97,9 +121,6 @@ const preguntaPersonalizadaReroll = {
 };
 
 const [mostrarComodines, setMostrarComodines] = useState(false);
-
-const handleAbrirComodines = () => setMostrarComodines(true);
-const handleCerrarComodines = () => setMostrarComodines(false);
 
 const pc = useRef(null);
 const ws = useRef(null);
@@ -367,28 +388,7 @@ const getColorClase = (i) => {
   }
 };
 
-  const revivirComodin = (comodin) => {
-  switch (comodin) {
-    case '50/50':
-      setComodinUsado(false);
-      break;
-    case 'llamada':
-      setComodinLlamadaUsado(false);
-      break;
-    case 'reroll':
-      setComodinRerollUsado(false);
-      setRerollRevivido(true);
-      break;
-    case 'ruleta':
-      setComodinRuletaUsado(false);
-      break;
-    default:
-      break;
-  }
-  setMostrarComodines(false);
-};
-
-<div style={{ position: "fixed", bottom: "20px", left: "20px", zIndex: 1000 }}>
+  <div style={{ position: "fixed", bottom: "20px", left: "20px", zIndex: 1000 }}>
   <button 
     onClick={handleAbrirComodines} 
     style={{
@@ -404,6 +404,7 @@ const getColorClase = (i) => {
     🤝
   </button>
 </div>
+
 {mostrarComodines && (
   <div style={{
     position: "fixed",
@@ -438,25 +439,15 @@ const getColorClase = (i) => {
         ✕
       </button>
 
-      <h2>Revivir un comodín</h2>
-      <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "15px" }}>
-        {comodinUsado && (
-          <button onClick={() => revivirComodin('50/50')}>50/50</button>
-        )}
-        {comodinLlamadaUsado && (
-          <button onClick={() => revivirComodin('llamada')}>📞 Llamada</button>
-        )}
-        {comodinRerollUsado && (
-          <button onClick={() => revivirComodin('reroll')}>🎲 Cambiar Pregunta</button>
-        )}
-        {comodinRuletaUsado && (
-          <button onClick={() => revivirComodin('ruleta')}>🎡 Ruleta</button>
-        )}
-      </div>
+      <h3>Revivir comodín</h3>
+      {comodinUsado && <button onClick={() => revivirComodin('50/50')}>50/50</button>}
+      {comodinLlamadaUsado && <button onClick={() => revivirComodin('llamada')}>📞 Llamada</button>}
+      {comodinRerollUsado && <button onClick={() => revivirComodin('reroll')}>🔄 Reroll</button>}
+      {comodinRuletaUsado && <button onClick={() => revivirComodin('ruleta')}>🎡 Ruleta</button>}
     </div>
   </div>
 )}
-  
+
   if (!usuarioInteractivo) {
   return (
     <div className="pantalla-inicial" style={{

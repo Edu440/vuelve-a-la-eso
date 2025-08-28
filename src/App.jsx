@@ -115,9 +115,9 @@ const revivirComodin = (comodin) => {
 };
 
 const preguntaPersonalizadaReroll = {
-  pregunta: "¿Cuál es el color que representa la esperanza?",
-  opciones: ["Azul", "Amarillo", "Verde", "Blanco"],
-  correcta: 2,
+  pregunta: "¿Cuál es el juego más vendido del mundo?",
+  opciones: ["Tetris", "Wii Sport", "GTA V", "Minecraft"],
+  correcta: 0,
 };
 
 const [mostrarComodines, setMostrarComodines] = useState(false);

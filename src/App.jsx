@@ -6,21 +6,21 @@ import { EyeOff } from 'lucide-react';
 import Participante from './Participante.jsx';
 
 const preguntas = [
-  { pregunta: "¿Cómo se llama el proceso por el cual las plantas se alimentan?", opciones: ["Fotosíntesis", "Precipitación", "Digestión", "Absorción"], correcta: 0 },
-  { pregunta: "¿En qué videojuego aparece el personaje Link?", opciones: ["Final Fantasy", "Zelda", "Genshin Impact", "Dark Souls"], correcta: 1 },
-  { pregunta: "¿Qué color no está en un cubo de Rubik original?", opciones: ["Blanco", "Verde", "Rosa", "Naranja"], correcta: 2 },
-  { pregunta: "¿Cuál es el país más grande del mundo?", opciones: ["China", "Rusia", "Canadá", "EE. UU."], correcta: 1 },
-  { pregunta: "¿Qué día se celebra Halloween?", opciones: ["30 de octubre", "31 de octubre", "1 de noviembre", "15 de octubre"], correcta: 1 },
-  { pregunta: "¿Qué órgano produce la insulina?", opciones: ["Hígado", "Riñon", "Páncreas", "Intestino"], correcta: 2 },
-  { pregunta: "¿Qué animal es el más rápido?", opciones: ["Leopardo", "Guepardo", "Águila", "Antílope"], correcta: 1 },
-  { pregunta: "¿Cuál es la capital de Ecuador?", opciones: ["Cuenca", "Guayaquil", "Quito", "Machala"], correcta: 2 },
-  { pregunta: "¿Cuántos elementos hay en la Tabla Periódica?", opciones: ["120", "119", "118", "121"], correcta: 2 },
-  { pregunta: "¿Cuál es el país con menos habitantes del mundo?", opciones: ["Mónaco", "Nauru", "Tuvalu", "La ciudad del Vaticano"], correcta: 3 },
-  { pregunta: "¿En qué ciudad de España está la Giralda?", opciones: ["Sevilla", "Galicia", "Lugo", "Asturias"], correcta: 0 },
-  { pregunta: "¿Cuál es el río más largo del mundo?", opciones: ["Nilo", "Amazonas", "Yangtsé", "Misisipi"], correcta: 1 },
-  { pregunta: "¿Cuántos hijos tiene Kratos, el personaje principal de la serie de videojuegos God of War?", opciones: ["1", "2", "3", "4"], correcta: 1 },
-  { pregunta: "¿Qué país inventó el sushi?", opciones: ["China", "Japón", "Corea", "Tailandia"], correcta: 0 },
-  { pregunta: "¿Quién pintó el grito?", opciones: ["Ernst Ludwig Kirchner", "Edvard Munch", "Christian Wilhelm Allers", "George William Russell"], correcta: 1 },
+  { pregunta: "¿De qué está recubierto el cuerpo de los peces?", opciones: ["Huesos", "Escamas", "Piel", "Grasa"], correcta: 1 },
+  { pregunta: "¿Cuál es el libro sagrado del Islam?", opciones: ["La Biblia", "El Canon pali", "El Corán", "El Pentateuco"], correcta: 2 },
+  { pregunta: "¿Quién es el personaje de videojuegos más famoso de todos los tiempos?", opciones: ["Pikachu", "Mario", "Crash bandicoot", "Sonic"], correcta: 1 },
+  { pregunta: "¿Cuál es la principal sustancia adictiva del tabaco?", opciones: ["Catinona", "Efedrina", "Nicotina", "Glaucina"], correcta: 2 },
+  { pregunta: "¿Qué es el umami?", opciones: ["Un reptil", "Una fruta", "Un sabor", "Una ciudad de Hawái"], correcta: 2 },
+  { pregunta: "¿Qué planeta gaseoso es el más grande de nuestro sistema solar?", opciones: ["Saturno", "Júpiter", "Urano", " Neptuno"], correcta: 1 },
+  { pregunta: "¿Qué sistema de juego introdujo primero a los jugadores al juego controlado por movimiento?", opciones: ["Nintendo Wii", "Xbox Kinect", "PlayStation Move", "Sega Activator"], correcta: 0 },
+  { pregunta: "¿Qué triángulo tiene sus tres lados iguales?", opciones: ["Equiláteros", "Isósceles", "Escalenos", "Obtusángulos"], correcta: 0 },
+  { pregunta: "¿Cuántos corazones tiene un pulpo?", opciones: ["Uno", "Dos", "tres", "Cuatro"], correcta: 2 },
+  { pregunta: "¿Cómo se llama el arte de combate principal en Sekiro?", opciones: ["Shinobi combat art", "Kendo", "Naginata", "Ashina Style"], correcta: 3 },
+  { pregunta: "¿Dónde nace la arteria aorta?", opciones: ["Aurícula izquierda", "Aurícula derecha", "Ventrículo izquierdo", "Ventrículo derecho"], correcta: 2 },
+  { pregunta: "¿Cuál es la isla más grande del mundo?", opciones: ["Japón", " Madagascar", " Nueva Guinea", "Groenlandia"], correcta: 3 },
+  { pregunta: "¿Cómo se llama el fantasma naranja en el videojuego ‘Pac-Man’?", opciones: ["Jason", "Clyde", "Clober", "Daryn"], correcta: 1 },
+  { pregunta: "¿Cuál es el elemento número 92 de la tabla periódica?", opciones: ["Uranio", "Plutonio", "Neptunio", "Radio"], correcta: 0 },
+  { pregunta: "¿Cuál es el apellido más común en los Estados Unidos?", opciones: ["Williams", "Johnson", "Smith", "Brown"], correcta: 2 },
 ];
 
 function App() {

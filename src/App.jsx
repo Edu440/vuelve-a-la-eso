@@ -388,6 +388,56 @@ const getColorClase = (i) => {
   }
 };
 
+  if (!usuarioInteractivo) {
+  return (
+    <div className="pantalla-inicial" style={{
+      position: 'fixed',
+      inset: 0,
+      backgroundColor: '#000',
+      color: 'white',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      zIndex: 9999
+    }}>
+      <h1 style={{ marginBottom: '20px' }}>¡Vuelve a la ESO!</h1>
+      <button
+        onClick={() => setUsuarioInteractivo(true)}
+        style={{
+          padding: '15px 30px',
+          fontSize: '1.2rem',
+          borderRadius: '8px',
+          backgroundColor: '#2196f3',
+          color: 'white',
+          border: 'none',
+          cursor: 'pointer'
+        }}
+      >
+        Empezar juego
+      </button>
+    </div>
+  );
+}
+
+  return (
+  <div className="main-container">
+    <div className="webcams">
+      <video id="webcam-propia" autoPlay playsInline muted />
+      {participanteConectado ? (
+        <video
+          ref={remoteVideo}
+          id="webcam-participante"
+          autoPlay
+          playsInline
+          muted
+        />
+      ) : (
+        <div className="participante-placeholder">
+          Esperando al participante...
+        </div>
+      )}
+    </div>
   <div style={{ position: "fixed", bottom: "20px", left: "20px", zIndex: 1000 }}>
   <button 
     onClick={handleAbrirComodines} 
@@ -447,57 +497,6 @@ const getColorClase = (i) => {
     </div>
   </div>
 )}
-
-  if (!usuarioInteractivo) {
-  return (
-    <div className="pantalla-inicial" style={{
-      position: 'fixed',
-      inset: 0,
-      backgroundColor: '#000',
-      color: 'white',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      zIndex: 9999
-    }}>
-      <h1 style={{ marginBottom: '20px' }}>¡Vuelve a la ESO!</h1>
-      <button
-        onClick={() => setUsuarioInteractivo(true)}
-        style={{
-          padding: '15px 30px',
-          fontSize: '1.2rem',
-          borderRadius: '8px',
-          backgroundColor: '#2196f3',
-          color: 'white',
-          border: 'none',
-          cursor: 'pointer'
-        }}
-      >
-        Empezar juego
-      </button>
-    </div>
-  );
-}
-
-  return (
-  <div className="main-container">
-    <div className="webcams">
-      <video id="webcam-propia" autoPlay playsInline muted />
-      {participanteConectado ? (
-        <video
-          ref={remoteVideo}
-          id="webcam-participante"
-          autoPlay
-          playsInline
-          muted
-        />
-      ) : (
-        <div className="participante-placeholder">
-          Esperando al participante...
-        </div>
-      )}
-    </div>
 
 <motion.h1
   className="titulo-esquina"

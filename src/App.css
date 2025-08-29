@@ -522,3 +522,83 @@ body {
   border-radius: 10px;
   cursor: pointer;
 }
+
+.revive-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  font-size: 22px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.revive-button:hover {
+  background: #f0f0f0;
+  transform: scale(1.1);
+}
+
+.revive-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+  z-index: 2000;
+  width: 320px;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.revive-popup .close-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #444;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.revive-popup .close-btn:hover {
+  color: #000;
+}
+
+.revive-popup .comodines-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.revive-popup .comodin-item {
+  padding: 10px;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #eaf3ff;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.revive-popup .comodin-item:hover {
+  background: #d0e7ff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -48%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}

@@ -6,21 +6,21 @@ import { EyeOff } from 'lucide-react';
 import Participante from './Participante.jsx';
 
 const preguntas = [
-  { pregunta: "¿De qué color son los contenedores para reciclar envases de plástico en España?", opciones: ["Verde", "Azul", "Marrón", "Amarrillo"], correcta: 3 },
-  { pregunta: "¿Qué gas respiramos para vivir?", opciones: ["Oxígeno", "Nitrógeno", "Dióxido de carbono", "Helio"], correcta: 0 },
-  { pregunta: "¿Cómo se llama el hábitat natural de los osos polares?", opciones: ["Polo norte", "Ártico", "Polo Sur", "Polonia"], correcta: 1 },
-  { pregunta: "¿Cómo se llama el contrario de una palabra?", opciones: ["Sinónimo", "Antónimo", "Patrónimo", "Centánimo"], correcta: 1 },
-  { pregunta: "¿En el juego de Brawl Stars, cuál es el nivel máximo de un brawler?", opciones: ["8", "10", "11", "12"], correcta: 2 },
-  { pregunta: "¿Qué significa FIFA?", opciones: ["Federación Internacional de Fútbol Asociación", "Fútbol Internacional de Federación Asociación", "Federación internacional de Formación Asociada", "Fútbol I Formación Asociada"], correcta: 0 },
-  { pregunta: "El hercio es una unidad de…", opciones: ["Longitud de onda", "Intensidad", "Frecuencia", "Resistencia"], correcta: 2 },
-  { pregunta: "¿Qué país es conocido como la “tierra de los mil lagos”?", opciones: ["Suecia", "Finlandia", "Noruega", "Canadá"], correcta: 1 },
-  { pregunta: "¿Cuál es la página web más traducida del mundo?", opciones: ["Wikipedia", "Google", "JW (Testigos de Jehova", "Facebook"], correcta: 2 },
-  { pregunta: "¿Qué es un “ebook”?", opciones: ["Un libro de Economía", "Un libro digital", "Un ticket de avión", "Un libro de información"], correcta: 1 },
-  { pregunta: "¿Qué personaje fue el primero en añadirse al cerrar la beta de Valorant?", opciones: ["Sage", "Skye", "Breach", "Killjoy"], correcta: 3 },
-  { pregunta: "¿Qué continente es conocido como la “cuna de la civilización”?", opciones: ["Asia", "África", "Europa", "América"], correcta: 0 },
-  { pregunta: "¿De cuántos músculos está compuesto el cuerpo humano?", opciones: ["339", "439", "539", "639"], correcta: 3 },
-  { pregunta: "¿En qué país se encuentra la selva negra?", opciones: ["Italia", "Suiza", "Austria", "Alemania"], correcta: 3 },
-  { pregunta: "¿Cuál de estos pueblos NO existe en España?", opciones: ["Espolla", "El pito", "Rabonet", "Villapene"], correcta: 2 },
+  { pregunta: "¿Qué ave es el símbolo nacional de Estados Unidos?", opciones: ["Buho", "Aguila Calva", "Cóndor", "Flamenco"], correcta: 1 },
+  { pregunta: "¿Qué tipo de juego es League of Legends?", opciones: ["MOBA", "FPS", "RPG", "MMO"], correcta: 0 },
+  { pregunta: "¿Cuál es el país más pequeño de Sudamérica por superficie?", opciones: ["Uruguay", "Brasil", "Chile", "Surinam"], correcta: 3 },
+  { pregunta: "¿Qué marca de ropa deportiva es la de las tres rayas?", opciones: ["Gucci", "Puma", "Adidas", "Nike"], correcta: 2 },
+  { pregunta: "¿Cuál de los siguientes es el principal síntoma de la bronquitis?", opciones: ["Aumento de peso", "Náuseas", "Tos", "Dolor de cabeza"], correcta: 2 },
+  { pregunta: "¿Por cuál proceso se desgasta una roca a causa del clima?", opciones: ["Sublimación", "Vegetación", "Erosión", "Catalización"], correcta: 2 },
+  { pregunta: "En Elden Ring ¿Como se llama la clase que empieza sin armadura?", opciones: ["Mendigo", "Miserable", "Marginado", "Vagabundo"], correcta: 1 },
+  { pregunta: "¿Cual es la catarata más alta del mundo?", opciones: ["Salto Ángel", "Cataratas Victoria", "Cataratas del Niágara", "Cataratas del Olimpo"], correcta: 0 },
+  { pregunta: "¿Cual era el nombre anterior de Twitch?", opciones: ["Pluto.tv", "Justin.tv", "Periscope.tv", "Streamers.tv"], correcta: 1 },
+  { pregunta: "¿De que pais es originaria la marca de Lego?", opciones: ["India", "Suecia", "Dinamarca", "Países Bajos"], correcta: 2 },
+  { pregunta: "¿Que estudia la fitopatología?", opciones: ["Enfermedades de las plantas", "Los nervios", "Las enfermedades de los peces", "Los insectos"], correcta: 0 },
+  { pregunta: "¿Qué saga tiene la frase de “prepare to die”?", opciones: ["Elden Ring", "Bloodborn", "Dark souls", "Sekiro"], correcta: 2 },
+  { pregunta: "¿Cuál es el peso medio del cerebro de un adulto?", opciones: ["500 gr", "1.4 kg", "1.1 kg", "2kg"], correcta: 1 },
+  { pregunta: "¿Qué filósofo griego es conocido por su método de enseñanza basado en el diálogo?", opciones: ["Platón", "Aristoteles", "Sócrates", "Kant"], correcta: 2 },
+  { pregunta: "¿En qué ciudad se encuentra el Flatirong Building?", opciones: ["Berlín", "Londres", "Los Angeles", "Nueva York"], correcta: 3 },
 ];
 
 function App() {
@@ -243,7 +243,7 @@ const preguntasFaciles = [
 ];
 
 const preguntasMedias = [
-  { pregunta: "¿Cómo se denomina el resultado de la multiplicación?", opciones: ["Multiplicador", "Resultado", "Producto", "Factor"], correcta: 2 },
+  { pregunta: "¿Dónde se originaron los juegos olímpicos?", opciones: ["Alemania", "Grecia", "China", "Japón"], correcta: 1 },
 ];
 
 const preguntasDificiles = [

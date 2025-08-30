@@ -6,21 +6,21 @@ import { EyeOff } from 'lucide-react';
 import Participante from './Participante.jsx';
 
 const preguntas = [
-  { pregunta: "¿De qué está recubierto el cuerpo de los peces?", opciones: ["Huesos", "Escamas", "Piel", "Grasa"], correcta: 1 },
-  { pregunta: "¿Cuál es el libro sagrado del Islam?", opciones: ["La Biblia", "El Canon pali", "El Corán", "El Pentateuco"], correcta: 2 },
-  { pregunta: "¿Quién es el personaje de videojuegos más famoso de todos los tiempos?", opciones: ["Pikachu", "Mario", "Crash bandicoot", "Sonic"], correcta: 1 },
-  { pregunta: "¿Cuál es la principal sustancia adictiva del tabaco?", opciones: ["Catinona", "Efedrina", "Nicotina", "Glaucina"], correcta: 2 },
-  { pregunta: "¿Qué es el umami?", opciones: ["Un reptil", "Una fruta", "Un sabor", "Una ciudad de Hawái"], correcta: 2 },
-  { pregunta: "¿Qué planeta gaseoso es el más grande de nuestro sistema solar?", opciones: ["Saturno", "Júpiter", "Urano", " Neptuno"], correcta: 1 },
-  { pregunta: "¿Qué sistema de juego introdujo primero a los jugadores al juego controlado por movimiento?", opciones: ["Nintendo Wii", "Xbox Kinect", "PlayStation Move", "Sega Activator"], correcta: 0 },
-  { pregunta: "¿Qué triángulo tiene sus tres lados iguales?", opciones: ["Equiláteros", "Isósceles", "Escalenos", "Obtusángulos"], correcta: 0 },
-  { pregunta: "¿Cuántos corazones tiene un pulpo?", opciones: ["Uno", "Dos", "tres", "Cuatro"], correcta: 2 },
-  { pregunta: "¿Cómo se llama el arte de combate principal en Sekiro?", opciones: ["Shinobi combat art", "Kendo", "Naginata", "Ashina Style"], correcta: 3 },
-  { pregunta: "¿Dónde nace la arteria aorta?", opciones: ["Aurícula izquierda", "Aurícula derecha", "Ventrículo izquierdo", "Ventrículo derecho"], correcta: 2 },
-  { pregunta: "¿Cuál es la isla más grande del mundo?", opciones: ["Japón", " Madagascar", " Nueva Guinea", "Groenlandia"], correcta: 3 },
-  { pregunta: "¿Cómo se llama el fantasma naranja en el videojuego ‘Pac-Man’?", opciones: ["Jason", "Clyde", "Clober", "Daryn"], correcta: 1 },
-  { pregunta: "¿Cuál es el elemento número 92 de la tabla periódica?", opciones: ["Uranio", "Plutonio", "Neptunio", "Radio"], correcta: 0 },
-  { pregunta: "¿Cuál es el apellido más común en los Estados Unidos?", opciones: ["Williams", "Johnson", "Smith", "Brown"], correcta: 2 },
+  { pregunta: "¿De qué color son los contenedores para reciclar envases de plástico en España?", opciones: ["Verde", "Azul", "Marrón", "Amarrillo"], correcta: 3 },
+  { pregunta: "¿Qué gas respiramos para vivir?", opciones: ["Oxígeno", "Nitrógeno", "Dióxido de carbono", "Helio"], correcta: 0 },
+  { pregunta: "¿Cómo se llama el hábitat natural de los osos polares?", opciones: ["Polo norte", "Ártico", "Polo Sur", "Polonia"], correcta: 1 },
+  { pregunta: "¿Cómo se llama el contrario de una palabra?", opciones: ["Sinónimo", "Antónimo", "Patrónimo", "Centánimo"], correcta: 1 },
+  { pregunta: "¿En el juego de Brawl Stars, cuál es el nivel máximo de un brawler?", opciones: ["8", "10", "11", "12"], correcta: 2 },
+  { pregunta: "¿Qué significa FIFA?", opciones: ["Federación Internacional de Fútbol Asociación", "Fútbol Internacional de Federación Asociación", "Federación internacional de Formación Asociada", "Fútbol I Formación Asociada"], correcta: 0 },
+  { pregunta: "El hercio es una unidad de…", opciones: ["Longitud de onda", "Intensidad", "Frecuencia", "Resistencia"], correcta: 2 },
+  { pregunta: "¿Qué país es conocido como la “tierra de los mil lagos”?", opciones: ["Suecia", "Finlandia", "Noruega", "Canadá"], correcta: 1 },
+  { pregunta: "¿Cuál es la página web más traducida del mundo?", opciones: ["Wikipedia", "Google", "JW (Testigos de Jehova", "Facebook"], correcta: 2 },
+  { pregunta: "¿Qué es un “ebook”?", opciones: ["Un libro de Economía", "Un libro digital", "Un ticket de avión", "Un libro de información"], correcta: 1 },
+  { pregunta: "¿Qué personaje fue el primero en añadirse al cerrar la beta de Valorant?", opciones: ["Sage", "Skye", "Breach", "Killjoy"], correcta: 3 },
+  { pregunta: "¿Qué continente es conocido como la “cuna de la civilización”?", opciones: ["Asia", "África", "Europa", "América"], correcta: 0 },
+  { pregunta: "¿De cuántos músculos está compuesto el cuerpo humano?", opciones: ["339", "439", "539", "639"], correcta: 3 },
+  { pregunta: "¿En qué país se encuentra la selva negra?", opciones: ["Italia", "Suiza", "Austria", "Alemania"], correcta: 3 },
+  { pregunta: "¿Cuál de estos pueblos NO existe en España?", opciones: ["Espolla", "El pito", "Rabonet", "Villapene"], correcta: 2 },
 ];
 
 function App() {
@@ -247,7 +247,7 @@ const preguntasMedias = [
 ];
 
 const preguntasDificiles = [
-  { pregunta: "¿Cuántas estrellas aparecen en la bandera de la República Popular China?", opciones: ["0", "5", "6", "8"], correcta: 1 },
+  { pregunta: "¿En el juego de GTA V, a qué marca hace referencia “Grotti”?", opciones: ["Ferrari", "Bugatti", "Porsche", "Lamborghini"], correcta: 0 },
 ];
 
 const obtenerPreguntaAleatoria = (nivel) => {

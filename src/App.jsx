@@ -6,21 +6,21 @@ import { EyeOff } from 'lucide-react';
 import Participante from './Participante.jsx';
 
 const preguntas = [
-  { pregunta: "¿Qué ave es el símbolo nacional de Estados Unidos?", opciones: ["Buho", "Aguila Calva", "Cóndor", "Flamenco"], correcta: 1 },
-  { pregunta: "¿Qué tipo de juego es League of Legends?", opciones: ["MOBA", "FPS", "RPG", "MMO"], correcta: 0 },
-  { pregunta: "¿Cuál es el país más pequeño de Sudamérica por superficie?", opciones: ["Uruguay", "Brasil", "Chile", "Surinam"], correcta: 3 },
-  { pregunta: "¿Qué marca de ropa deportiva es la de las tres rayas?", opciones: ["Gucci", "Puma", "Adidas", "Nike"], correcta: 2 },
-  { pregunta: "¿Cuál de los siguientes es el principal síntoma de la bronquitis?", opciones: ["Aumento de peso", "Náuseas", "Tos", "Dolor de cabeza"], correcta: 2 },
-  { pregunta: "¿Por cuál proceso se desgasta una roca a causa del clima?", opciones: ["Sublimación", "Vegetación", "Erosión", "Catalización"], correcta: 2 },
-  { pregunta: "En Elden Ring ¿Como se llama la clase que empieza sin armadura?", opciones: ["Mendigo", "Miserable", "Marginado", "Vagabundo"], correcta: 1 },
-  { pregunta: "¿Cual es la catarata más alta del mundo?", opciones: ["Salto Ángel", "Cataratas Victoria", "Cataratas del Niágara", "Cataratas del Olimpo"], correcta: 0 },
-  { pregunta: "¿Cual era el nombre anterior de Twitch?", opciones: ["Pluto.tv", "Justin.tv", "Periscope.tv", "Streamers.tv"], correcta: 1 },
-  { pregunta: "¿De que pais es originaria la marca de Lego?", opciones: ["India", "Suecia", "Dinamarca", "Países Bajos"], correcta: 2 },
-  { pregunta: "¿Que estudia la fitopatología?", opciones: ["Enfermedades de las plantas", "Los nervios", "Las enfermedades de los peces", "Los insectos"], correcta: 0 },
-  { pregunta: "¿Qué saga tiene la frase de “prepare to die”?", opciones: ["Elden Ring", "Bloodborn", "Dark souls", "Sekiro"], correcta: 2 },
-  { pregunta: "¿Cuál es el peso medio del cerebro de un adulto?", opciones: ["500 gr", "1.4 kg", "1.1 kg", "2kg"], correcta: 1 },
-  { pregunta: "¿Qué filósofo griego es conocido por su método de enseñanza basado en el diálogo?", opciones: ["Platón", "Aristoteles", "Sócrates", "Kant"], correcta: 2 },
-  { pregunta: "¿En qué ciudad se encuentra el Flatirong Building?", opciones: ["Berlín", "Londres", "Los Angeles", "Nueva York"], correcta: 3 },
+  { pregunta: "¿Qué personaje come espinacas para volverse más fuerte?", opciones: ["Goku", "Hulk", "Scooby-Doo", "Popeye"], correcta: 3 },
+  { pregunta: "¿Cuántos lados tiene un círculo?", opciones: ["0", "1", "2", "Infinitos lados"], correcta: 0 },
+  { pregunta: "¿Cuál es el deporte nacional de Japón?", opciones: ["Judo", "Sumo", "Futbol", "Tenis"], correcta: 1 },
+  { pregunta: "¿Qué sabor percibimos solo con la punta de la lengua?", opciones: ["Ácido", "Amargo", "Dulce", "Salado"], correcta: 2 },
+  { pregunta: "¿En qué país se encuentra el castillo de Drácula?", opciones: ["Rumania", "Francia", "Inglaterra", "Hungría"], correcta: 0 },
+  { pregunta: "¿Qué fruta crece en un árbol?", opciones: ["Grosella", "Fresa", "Frambuesa", "Cereza"], correcta: 3 },
+  { pregunta: "En Minecraft, ¿Qué mineral tiene el cinturón de un aldeano al máximo?", opciones: ["Esmeralda", "Diamante", "Netherite", "Oro"], correcta: 1 },
+  { pregunta: "¿Cuál de estos materiales es el más duro?", opciones: ["Cuarzo", "Topacio", "Diamante", "Corindón"], correcta: 2 },
+  { pregunta: "¿Cuál es la unidad de memoria más pequeña de un ordenador?", opciones: ["Bit", "Byte", "Octeto", "Nibble"], correcta: 0 },
+  { pregunta: "¿Cuál es el nombre de la pasta en forma de mariposa?", opciones: ["Penne", "Fusilli", "Tagliatelle", "Farfalle"], correcta: 3 },
+  { pregunta: "En la pokedex, ¿Qué número es Porygon-Z?", opciones: ["89", "432", "474", "376"], correcta: 2 },
+  { pregunta: "¿Quién gano el Mr.Olympia del año 1997?", opciones: ["Ronnie Coleman", "Shawn Ray", "Dorian Yates", "Flex Wheeler"], correcta: 2 },
+  { pregunta: "¿En qué país se encuentra la selva negra?", opciones: ["Italia", "Suiza", "Austria", "Alemania"], correcta: 3 },
+  { pregunta: "¿Qué ciudad es conocida como “la Ciudad de la Luz”?", opciones: ["París", "Berlín", "Roma", "Oporto"], correcta: 0 },
+  { pregunta: "¿Qué país prohibió el chicle?", opciones: ["India", "Nueva Zelanda", "Suiza", "Singapur"], correcta: 3 },
 ];
 
 function App() {
@@ -243,11 +243,11 @@ const preguntasFaciles = [
 ];
 
 const preguntasMedias = [
-  { pregunta: "¿Dónde se originaron los juegos olímpicos?", opciones: ["Alemania", "Grecia", "China", "Japón"], correcta: 1 },
+  { pregunta: "¿Cómo se llama los dientes frontales?", opciones: ["Molares", "Caninos", "Incisivos", "Premolares"], correcta: 2 },
 ];
 
 const preguntasDificiles = [
-  { pregunta: "¿En el juego de GTA V, a qué marca hace referencia “Grotti”?", opciones: ["Ferrari", "Bugatti", "Porsche", "Lamborghini"], correcta: 0 },
+  { pregunta: "¿Quién esculpió la estatua de “David”?", opciones: ["Michelangelo", "Leonardo da Vinci", "Auguste Rodin", "Donatello"], correcta: 0 },
 ];
 
 const obtenerPreguntaAleatoria = (nivel) => {

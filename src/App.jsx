@@ -6,21 +6,21 @@ import { EyeOff } from 'lucide-react';
 import Participante from './Participante.jsx';
 
 const preguntas = [
-  { pregunta: "¿Cómo se llama el equipo de eSports de Ibai?", opciones: ["Giants", "G2", "Porcinos FC", "KOI"], correcta: 3 },
-  { pregunta: "¿Cuántos días le toma a la tierra a dar una vuelta a la órbita del sol?", opciones: ["360", "364", "365", "366"], correcta: 2 },
-  { pregunta: "¿Cuál es el animal nacional de China?", opciones: ["Panda", "Dragón", "Tigre", "Koala"], correcta: 0 },
-  { pregunta: "¿Que Pokémon es conocido como el “Dragón Fantasma?", opciones: ["Hydreigon", "Dragonite", "Giratina", "Charizard"], correcta: 2 },
-  { pregunta: "¿Qué animal es conocido por su habilidad para imitar sonidos?", opciones: ["Perro", "Loro", "Gato", "Conejo"], correcta: 1 },
-  { pregunta: "¿Cuál es el país más poblado del mundo?", opciones: ["Rusia", "China", "Estados Unidos", "India"], correcta: 3 },
-  { pregunta: "En League of Legends, ¿qué campeón come naranjas?", opciones: ["Gangplank", "Miss Fortune", "Twisted Fate", "Viego"], correcta: 0 },
-  { pregunta: "¿Cuál es el color que representa la esperanza?", opciones: ["Azul", "Amarillo", "Verde", "Blanco"], correcta: 2 },
-  { pregunta: "¿Cuántos colores tiene la bandera de Sudáfrica?", opciones: ["3", "2", "4", "6"], correcta: 3 },
-  { pregunta: "¿Quién pinto La Gioconda?", opciones: ["Leonardo da Vinci", "Picasso", "Van Gogh", "Dalí"], correcta: 0 },
-  { pregunta: "En comparación con su peso corporal, ¿qué animal es el más fuerte?", opciones: ["Escarabajo pelotero", "Elefante", "Hormiga", "Toro"], correcta: 0 },
-  { pregunta: "¿Cuál fue el nombre original antes de ser lanzado como Minecraft?", opciones: ["Block World", "Mine Build", "Cube Craft", "Cave Game"], correcta: 3 },
-  { pregunta: "¿Cuántos úteros tiene una canguro hembra?", opciones: ["1", "2", "3", "4"], correcta: 2 },
-  { pregunta: "¿A qué tienes miedo si sufres de aporofobia?", opciones: ["Puntos", "Cadenas", "Pobres", "Piscinas"], correcta: 2 },
-  { pregunta: "¿Cuál es la civilización más antigua conocida en el mundo?", opciones: ["Etruscos", "Sumerios", "Celtas", "Olmecas"], correcta: 1 },
+  { pregunta: "¿Qué personaje come espinacas para volverse más fuerte?", opciones: ["Goku", "Hulk", "Scooby-Doo", "Popeye"], correcta: 3 },
+  { pregunta: "¿Cuántos lados tiene un círculo?", opciones: ["0", "1", "2", "Infinitos lados"], correcta: 0 },
+  { pregunta: "¿Cuál es el deporte nacional de Japón?", opciones: ["Judo", "Sumo", "Futbol", "Tenis"], correcta: 1 },
+  { pregunta: "¿Qué sabor percibimos solo con la punta de la lengua?", opciones: ["Ácido", "Amargo", "Dulce", "Salado"], correcta: 2 },
+  { pregunta: "¿En qué país se encuentra el castillo de Drácula?", opciones: ["Rumania", "Francia", "Inglaterra", "Hungría"], correcta: 0 },
+  { pregunta: "¿Qué fruta crece en un árbol?", opciones: ["Grosella", "Fresa", "Frambuesa", "Cereza"], correcta: 3 },
+  { pregunta: "En Minecraft, ¿Qué mineral tiene el cinturón de un aldeano al máximo?", opciones: ["Esmeralda", "Diamante", "Netherite", "Oro"], correcta: 1 },
+  { pregunta: "¿Cuál de estos materiales es el más duro?", opciones: ["Cuarzo", "Topacio", "Diamante", "Corindón"], correcta: 2 },
+  { pregunta: "¿Cuál es la unidad de memoria más pequeña de un ordenador?", opciones: ["Bit", "Byte", "Octeto", "Nibble"], correcta: 0 },
+  { pregunta: "¿Cuál es el nombre de la pasta en forma de mariposa?", opciones: ["Penne", "Fusilli", "Tagliatelle", "Farfalle"], correcta: 3 },
+  { pregunta: "En la pokedex, ¿Qué número es Porygon-Z?", opciones: ["89", "474", "432", "376"], correcta: 1 },
+  { pregunta: "¿Quién gano el Mr.Olympia del año 1997?", opciones: ["Ronnie Coleman", "Shawn Ray", "Dorian Yates", "Flex Wheeler"], correcta: 2 },
+  { pregunta: "¿En qué país se encuentra la selva negra?", opciones: ["Italia", "Suiza", "Austria", "Alemania"], correcta: 3 },
+  { pregunta: "¿Qué ciudad es conocida como “la Ciudad de la Luz”?", opciones: ["París", "Berlín", "Roma", "Oporto"], correcta: 0 },
+  { pregunta: "¿Qué país prohibió el chicle?", opciones: ["India", "Nueva Zelanda", "Suiza", "Singapur"], correcta: 3 },
 ];
 
 function App() {
@@ -247,7 +247,7 @@ const preguntasMedias = [
 ];
 
 const preguntasDificiles = [
-  { pregunta: "¿En el juego de GTA V, a qué marca hace referencia “Grotti”?", opciones: ["Ferrari", "Bugatti", "Porsche", "Lamborghini"], correcta: 0 },
+  { pregunta: "¿Quién esculpió la estatua de “David”?", opciones: ["Michelangelo", "Leonardo da Vinci", "Auguste Rodin", "Donatello"], correcta: 0 },
 ];
 
 const obtenerPreguntaAleatoria = (nivel) => {

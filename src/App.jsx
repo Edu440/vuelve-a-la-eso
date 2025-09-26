@@ -6,21 +6,21 @@ import { EyeOff } from 'lucide-react';
 import Participante from './Participante.jsx';
 
 const preguntas = [
-  { pregunta: "¿Qué personaje come espinacas para volverse más fuerte?", opciones: ["Goku", "Hulk", "Scooby-Doo", "Popeye"], correcta: 3 },
-  { pregunta: "¿Cuántos lados tiene un círculo?", opciones: ["0", "1", "2", "Infinitos lados"], correcta: 0 },
-  { pregunta: "¿Cuál es el deporte nacional de Japón?", opciones: ["Judo", "Sumo", "Futbol", "Tenis"], correcta: 1 },
-  { pregunta: "¿Qué sabor percibimos solo con la punta de la lengua?", opciones: ["Ácido", "Amargo", "Dulce", "Salado"], correcta: 2 },
-  { pregunta: "¿En qué país se encuentra el castillo de Drácula?", opciones: ["Rumania", "Francia", "Inglaterra", "Hungría"], correcta: 0 },
-  { pregunta: "¿Qué fruta crece en un árbol?", opciones: ["Grosella", "Fresa", "Frambuesa", "Cereza"], correcta: 3 },
-  { pregunta: "En Minecraft, ¿Qué mineral tiene el cinturón de un aldeano al máximo?", opciones: ["Esmeralda", "Diamante", "Netherite", "Oro"], correcta: 1 },
-  { pregunta: "¿Cuál de estos materiales es el más duro?", opciones: ["Cuarzo", "Topacio", "Diamante", "Corindón"], correcta: 2 },
-  { pregunta: "¿Cuál es la unidad de memoria más pequeña de un ordenador?", opciones: ["Bit", "Byte", "Octeto", "Nibble"], correcta: 0 },
-  { pregunta: "¿Cuál es el nombre de la pasta en forma de mariposa?", opciones: ["Penne", "Fusilli", "Tagliatelle", "Farfalle"], correcta: 3 },
-  { pregunta: "En la pokedex, ¿Qué número es Porygon-Z?", opciones: ["89", "474", "432", "376"], correcta: 1 },
-  { pregunta: "¿Quién gano el Mr.Olympia del año 1997?", opciones: ["Ronnie Coleman", "Shawn Ray", "Dorian Yates", "Flex Wheeler"], correcta: 2 },
-  { pregunta: "¿En qué país se encuentra la selva negra?", opciones: ["Italia", "Suiza", "Austria", "Alemania"], correcta: 3 },
-  { pregunta: "¿Qué ciudad es conocida como “la Ciudad de la Luz”?", opciones: ["París", "Berlín", "Roma", "Oporto"], correcta: 0 },
-  { pregunta: "¿Qué país prohibió el chicle?", opciones: ["India", "Nueva Zelanda", "Suiza", "Singapur"], correcta: 3 },
+  { pregunta: "¿Cuántas cuerdas tiene un Ukelele?", opciones: ["2", "4", "6", "8"], correcta: 1 },
+  { pregunta: "¿Cuál es la consola de videojuegos más vendida de la historia?", opciones: ["Nintendo DS", "PlayStation 2", "Nintendo Switch", "Game Boy Advance"], correcta: 1 },
+  { pregunta: "¿Cuál es la quinta letra del alfabeto griego?", opciones: ["Delta", "Gamma", "Alfa", "Épsilon"], correcta: 3 },
+  { pregunta: "¿Cómo se llama la parte coloreada del ojo?", opciones: ["Pupila", "Iris", "Retina", "Córnea"], correcta: 1 },
+  { pregunta: "En Clash Royale, ¿Qué día de la semana puedes pedir cartas épicas en el clan?", opciones: ["Viernes", "Jueves", "Domingo", "Sábado"], correcta: 2 },
+  { pregunta: "¿Cuántos colores tiene la bandera de Sudáfrica?", opciones: ["3", "2", "4", "6"], correcta: 3 },
+  { pregunta: "¿Qué pista suele ser la última en Mario Kart?", opciones: ["Yoshi Valley", "Mount Wario", "Rainbow Road", "DK Jungle"], correcta: 2 },
+  { pregunta: "¿Qué hierba es un ingrediente del pesto?", opciones: ["Perejil", "Cilantro", "Albahaca", "Menta"], correcta: 2 },
+  { pregunta: "¿Qué aparece en el primer vídeo subido a YouTube?", opciones: ["Un aeropuerto", "Un cine", "Una playa", "Un zoológico"], correcta: 3 },
+  { pregunta: "¿Qué es una gramola?", opciones: ["Reproductor de música", "Un cereal", "Tipo de caries", "Tipo de tractor"], correcta: 0 },
+  { pregunta: "En comparación con su peso corporal, ¿qué animal es el más fuerte?", opciones: ["Escarabajo pelotero", "Elefante", "Hormiga", "Toro"], correcta: 0 },
+  { pregunta: "En Geometry Dash, ¿cuántos niveles oficiales tiene?", opciones: ["20", "21", "22", "19"], correcta: 2 },
+  { pregunta: "¿En qué ciudad se encuentra el Flatirong Building?", opciones: ["Detroit", "Londres", "Los Angeles", "Nueva York"], correcta: 3 },
+  { pregunta: "¿Cuál es la cantidad total de huesos que tiene el cuerpo humano?", opciones: ["206", "208", "210", "212"], correcta: 0 },
+  { pregunta: "¿Qué cantante o grupo musical es el que más ha vendido en la historia?", opciones: ["Michael Jackson", "Queen", "The Beatles", "Metallica"], correcta: 2 },
 ];
 
 function App() {
@@ -239,7 +239,7 @@ if (indice === 0) {
   };
 
 const preguntasFaciles = [
-  { pregunta: "¿Qué cicatriz común tenemos todos los seres humanos?", opciones: ["El ombligo", "El ano", "La raja del culo", "El brazo"], correcta: 0 },
+  { pregunta: "¿Qué son los humanos?", opciones: ["Piscívoros", "Omnívoros", "Herbívoros", "Carnívoros"], correcta: 1 },
 ];
 
 const preguntasMedias = [
